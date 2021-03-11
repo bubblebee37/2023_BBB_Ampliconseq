@@ -71,6 +71,6 @@ m_17 = pd.merge(m_16, M_3_r, on = '#pseq', how = 'outer')
 
 m_17.columns = ["Protein_sequence", "Input_1", "Input_2", "Input_3", "Input_new_1", "Input_new_2", "Input_new_3", "Transwell_1", "Transwell_2", "Transwell_3", "Chip_1um_1", "Chip_1um_2", "Chip_1um_3", "Chip_2um_1", "Chip_2um_2", "Chip_2um_3", "In_vivo_1", "In_vivo_2", "In_vivo_3"]
 
-#전체 protein sequence를 포함한 dataframe 지정 --> m_pseq_r_total
+#전체 protein sequence를 포함한 dataframe 지정 --> m_pseq_r_total --> rank
 m_17 = m_17.fillna(0)
-m_pseq_r_total = m_14.sort_values(by=["In_vivo_3"], axis=0, ascending=False)
+m_pseq_r_total = m_17.sort_values(by=["In_vivo_3"], axis=0, ascending=False)
