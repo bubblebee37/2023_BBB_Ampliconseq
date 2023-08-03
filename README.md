@@ -8,7 +8,7 @@ BBBpeptidePredictor is a tool designed to predict specific blood-brain barrier(B
 
 The prediction model is built using a Convolutional Neural Network (CNN) and implemented using Keras (ver. 2.4.0).
 
-## Step 0. Pre-processing the sequencing data
+## Step 0. Pre-process the sequencing data
 1. Use conda to install the trimmomatic, bowtie2, samtools.
 ````
     $ conda install -c bioconda trimmomatic
@@ -36,10 +36,12 @@ GGTGGAGG TTCGGCCGAA ACTGTTGAAA GTTGTTTAGC AAAATCCCAT ACAGAAAATC ATTACTAACG TCTGG
 * Output of 03.make-nVR_freq.sh : sample_name.nVR_freq (Count of identified DNA sequence)
 * Output of 04.make-pVR_freq.sh : sample_name.pVR_freq (After translating DNA sequences into peptide sequences, counts and frequencies are displayed.)
 
-## Step 1. Remove the outlier sequences and make the input dataset composed of 12-mer target sequences.
+## Step 1. Make the input dataset composed of filtered peptide sequences
+This step is to remove the outlier sequences and make the input dataset composed of 12-mer target sequences.
 Add the '.pVR_freq' file path to the jupyter notebook code, '/dataseq_prep/~.ipynb'. Outlier sequences in all samples are filtered out. Finally, you can make the input dataset to predict the penetration of peptide sequences.
 
-## Step 2. Load the input dataset to a finalized 10-fold cross-validated CNN model and predict the BBB penetration.
-Add the '.csv' input file path to '/ML_pred/~.ipynb'. The peptide sequences can be converted to the one-hot encoded matrix format and the predicted class and score of each peptide would be derived.
+## Step 2. Predict the peptide penetration through the BBB using the CNN model
+This step is to load the input dataset to a finalized 10-fold cross-validated CNN model and predict the BBB penetration probability of peptide sequences.
+By Add the '.csv' input file path to '/ML_pred/~.ipynb'. The peptide sequences can be converted to the one-hot encoded matrix format and the predicted class and score of each peptide would be derived.
 * Class 1 means penetrating peptides.
 * Class 0 means Not-penetrating peptides.
