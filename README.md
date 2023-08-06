@@ -40,7 +40,7 @@ GGTGGAGG TTCGGCCGAA ACTGTTGAAA GTTGTTTAGC AAAATCCCAT ACAGAAAATC ATTACTAACG TCTGG
 
 ## Step 1. Make the input dataset composed of filtered peptide sequences
 This step is to remove the outlier sequences and make the input dataset composed of 12-mer target sequences.
-Add the '.pVR_freq' file path to the jupyter notebook code, '/dataseq_prep/~.ipynb'. Outlier sequences in all samples are filtered out. Finally, you can make the input dataset to predict the penetration of peptide sequences.
+Add the '.pVR_freq' file path to the jupyter notebook code, '/dataseq_prep/05.Preparing_inputdata.ipynb'. Outlier sequences in all samples are filtered out. Finally, you can make the input dataset to predict the penetration of peptide sequences.
 
 ## Step 2. Predict the BBB penetration of peptide using the CNN model
 This step is to load the input dataset to a finalized 10-fold cross-validated CNN model and predict the BBB penetration probability of peptide sequences.
