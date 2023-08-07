@@ -47,11 +47,9 @@ By adding '.pVR_freq' file path to the jupyter notebook code, '/dataseq_prep/05.
 ## Step 2. Predict the BBB penetration of peptide using the CNN model
 1. Tensorflow package and scikit-learn module dependencies
 * Tensorflow (ver. 2.9.0)
-* scikit-learn (ver. 1.0.1)
-> Use conda to install the Tensorflow and scikit-learn.
+> Use conda to install the Tensorflow.
 ````
     $ conda install tensorflow
-    $ conda install -c conda-forge scikit-learn
 ````
 
 2. Load the '.csv' input file path to the finalized 10-fold cross-validated CNN model in '/ML_pred/06.Applying_to_MLmodel.ipynb'. The peptide sequences can be converted to the one-hot encoded matrix form and the predicted class and score *(probability of BBB penetration)* would be derived.
