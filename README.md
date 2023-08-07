@@ -37,6 +37,10 @@ GGTGGAGG TTCGGCCGAA ACTGTTGAAA GTTGTTTAGC AAAATCCCAT ACAGAAAATC ATTACTAACG TCTGG
 * Output of 04.make-pVR_freq.sh : sample_name.pVR_freq (After translating DNA sequences into peptide sequences, counts and frequencies are displayed.)
 
 ## Step 1. Make the input dataset composed of filtered peptide sequences
+>pVR_freq file format :
+>
+>#pseq&emsp;Rank&emsp;Count&emsp;pct_total&emsp;pct_over3&emsp;nseq_count&emsp;nseq_rep&emsp;nseq_rep_count
+
 This step removes the outlier sequences and makes the input dataset composed of 12-mer target sequences.
 By adding '.pVR_freq' file path to the jupyter notebook code, '/dataseq_prep/05.Preparing_inputdata.ipynb', outlier sequences in all samples are filtered out. Then we could analyze the peptide enrichment during the sequential biopanning and prepare the datasets as the inputs for prediction model training.
 
