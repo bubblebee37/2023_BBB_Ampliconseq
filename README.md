@@ -1,12 +1,9 @@
-# BBBpeptidePredictor
-Version: 2023-08-03
-
 Author: Kyungha Kim (bubblebee@unist.ac.kr)
 
 ## Introduction
 BBBpeptidePredictor is a tool designed to predict specific blood-brain barrier(BBB)-penetrating peptide sequences. These peptides are amplified 12-mer sequences obtained from a combinatorial library of random 12-mer M13 phage display peptides. The peptide sequences are converted into one-hot encoded matrices, which are input for the penetration-predicting machine learning model based on binary classification. This model allows the prediction of BBB-penetration probabilities and the corresponding class of the 12-mer peptide.
 
-## Step 0. Pre-process the sequencing data
+## Step 1. Pre-process the sequencing data
 > Use conda to install the trimmomatic, bowtie2, samtools.
 ````
     $ conda install -c bioconda trimmomatic
@@ -36,24 +33,10 @@ GGTGGAGG TTCGGCCGAA ACTGTTGAAA GTTGTTTAGC AAAATCCCAT ACAGAAAATC ATTACTAACG TCTGG
 * Output of 03.make-nVR_freq.sh : sample_name.nVR_freq (Count of identified DNA sequence)
 * Output of 04.make-pVR_freq.sh : sample_name.pVR_freq (After translating DNA sequences into peptide sequences, counts and frequencies are displayed.)
 
-## Step 1. Make the input dataset composed of filtered peptide sequences
+## Step 2. Make the input dataset composed of filtered peptide sequences
 >pVR_freq file format :
 >
 >#pseq&emsp;Rank&emsp;Count&emsp;pct_total&emsp;pct_over3&emsp;nseq_count&emsp;nseq_rep&emsp;nseq_rep_count
 
 This step removes the outlier sequences and makes the input dataset composed of 12-mer target sequences.
-By adding '.pVR_freq' file path to the jupyter notebook code, '/dataseq_prep/05.Preparing_inputdata.ipynb', outlier sequences in all samples are filtered out. Then we could analyze the peptide enrichment during the sequential biopanning and prepare the datasets as the inputs for prediction model training.
-
-## Step 2. Predict the BBB penetration of peptide using the CNN model
-1. Tensorflow package and scikit-learn module dependencies
-* Tensorflow (ver. 2.9.0)
-> Use conda to install the Tensorflow.
-````
-    $ conda install tensorflow
-````
-
-2. Load the '.csv' input file path to the finalized 10-fold cross-validated CNN model in '/ML_pred/06.Applying_to_MLmodel.ipynb'. The peptide sequences can be converted to the one-hot encoded matrix form and the predicted class and score *(probability of BBB penetration)* would be derived.
-* Class 1 means penetrating peptides.
-* Class 0 means Not-penetrating peptides.
-
-*To see the 10-fold cross-validated model and the manually optimized hyperparameters,* refer to the 'ML_pred/07.10fold_CV.ipynb'.
+By adding '.pVR_freq' file path to the jupyter notebook code, '/dataseq_prep/05.Preparing_inputdata.ipynb', outlier sequences in all samples are filtered out. Then we could analyze the peptide enrichment during the sequential biopanning and prepare the datasets as the inputs for the peptide analysis.
